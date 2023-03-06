@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Layout from '../components/layout';
+import PageLayout from '../components/PageLayout';
 import styles from './Profile.module.scss';
 import { clsx } from 'clsx';
 
 export default function Profile({ type = 'success' }) {
   return (
-    <Layout profile>
+    <PageLayout profile>
       <Head>
         <title>Profile</title>
         <link rel="icon" href="/favicon.ico" />
@@ -24,6 +24,6 @@ export default function Profile({ type = 'success' }) {
           alt="Profile picture"
         />
       </main>
-    </Layout>
+    </PageLayout>
   )
 }
