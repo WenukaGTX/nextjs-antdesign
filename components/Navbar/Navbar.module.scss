@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    align-items: center;
+
+    .websiteLogo {
+        margin-right: auto;
+    }
+
+    .navLinks {
+        display: flex;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+
+            &+a {
+                margin-left: 2rem;
+            }
+        }
+    }
+}

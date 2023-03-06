@@ -1,12 +1,12 @@
+import { Layout } from 'antd';
 import Head from 'next/head';
-import Link from 'next/link';
-import styles from './layout.module.scss';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
 
-const name = 'Suresh Godakanda';
-export const siteTitle = 'Hope page';
+export const siteTitle = 'Home page';
 
-export default function Layout({ children, home }) {
-    return <div className={styles.container}>
+export default function PageLayout({ children, home }) {
+    return <div>
         <Head>
             <link rel="icon" href="/favicon.ico" />
             <meta
@@ -22,10 +22,8 @@ export default function Layout({ children, home }) {
             <meta name="og:title" content={siteTitle} />
             <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <header className={styles.header}>
-            {home && (<Link href="/profile">Profile</Link>)}
-            {!home && (<Link href="/">← Back to home</Link>)}
-        </header>
+        <Navbar />
         <main>{children}</main>
+        <Footer />
     </div>;
 }

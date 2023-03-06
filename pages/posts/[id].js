@@ -1,7 +1,7 @@
-import Layout from '../../components/layout';
+import PageLayout from '../../components/PageLayout';
 import Head from 'next/head';
-
 import { getAllPostIds, getPostData } from '../../lib/posts';
+import Image from 'next/image';
 
 export async function getStaticProps({ params }) {
     // Add the "await" keyword like this:
@@ -24,16 +24,22 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }) {
     return (
-        <Layout>
-            <Head>
-                {postData.title}
-            </Head>
-            <h1>{postData.title}</h1>
-            {postData.id}
-            <br />
-            {postData.date}
-            <br />
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </Layout>
+        <PageLayout>
+            <Image
+                src={`/images/posts/${postData.cover}.png`}
+                height={144}
+                width={800}
+                alt={postData.title}
+            />
+            <section className='section'>
+                <Head>
+                    {postData.title}
+                </Head>
+                <h1>{postData.title}</h1>
+                <p>{postData.id}</p>
+                <p>{postData.date}</p>
+                <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+            </section>
+        </PageLayout>
     );
 }

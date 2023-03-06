@@ -1,5 +1,6 @@
 ---
 title: 'Two Forms of Pre-rendering'
+cover: 'banner1'
 date: '2020-01-01'
 ---
 

@@ -1,8 +1,10 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
+import Link from 'next/link';
+import Banner from '../components/Banner/Banner';
+import PageLayout, { siteTitle } from '../components/PageLayout';
 import { getSortedPostsData } from '../lib/posts';
 import { Card, Col, Row } from 'antd';
-import Link from 'next/link';
+import Image from 'next/image';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
@@ -15,20 +17,28 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
+    <PageLayout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <main>
-        <h1>Home page</h1>
-      </main>
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section>
-        <h2>Blog</h2>
+      <Banner />
+      <section className='section'>
+        <h2 className='sectionTitle'>Projects <Link href={`/`}>See all</Link></h2>
         <Row gutter={16}>
-          {allPostsData.map(({ id, date, title }) => (
-            <Col span={12}>
-              <Card key={id} title={title} bordered={false}>
+          {allPostsData.map(({ id, date, title, cover }) => (
+            <Col span={12} key={id}>
+              <Card
+                bordered={false}
+                hoverable
+                cover={
+                  <Image
+                    src={`/images/posts/${cover}.png`}
+                    height={144}
+                    width={144}
+                    alt="Profile picture"
+                  />
+                }
+              >
                 <p>{id}</p>
                 <p>{date}</p>
                 <Link href={`/posts/${id}`}>{title}</Link>
@@ -37,6 +47,6 @@ export default function Home({ allPostsData }) {
           ))}
         </Row>
       </section>
-    </Layout>
+    </PageLayout>
   )
 }
