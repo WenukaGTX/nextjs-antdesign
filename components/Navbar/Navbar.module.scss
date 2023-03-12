@@ -1,16 +1,19 @@
 .navbar {
     display: flex;
     align-items: center;
+    background-color: #fff;
 
     .websiteLogo {
         margin-right: auto;
+        width: auto;
     }
 
     .navLinks {
         display: flex;
 
         a {
-            color: #fff;
+            color: #001529;
+            font-weight: 700;
             text-decoration: none;
 
             &+a {

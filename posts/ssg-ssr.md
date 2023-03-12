@@ -1,6 +1,6 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
-cover: 'banner2'
+title: 'Annual general meeting 2023'
+cover: 'annual_general_meeting-1.png'
 date: '2020-01-02'
 ---
 

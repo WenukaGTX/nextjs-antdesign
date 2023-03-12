@@ -9,15 +9,17 @@ export default function Navbar() {
     return (
         <Header className={styles.navbar}>
             <Image
-                src="/sketchfab-logo-text-white-mono.png"
-                height={25}
+                src="images/applied-alimni-logo-horz.svg"
+                height={40}
                 width={110}
                 alt="logo"
                 className={styles.websiteLogo}
             />
             <div className={styles.navLinks}>
                 <Link href="/">Home</Link>
-                <Link href="/profile">Profile</Link>
+                <Link href="/profile/profile">About</Link>
+                <Link href="/profile/profile">My profile</Link>
+                <Link href="/events/events">Events</Link>
             </div>
         </Header>
     )

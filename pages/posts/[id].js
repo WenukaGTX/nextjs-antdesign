@@ -26,10 +26,11 @@ export default function Post({ postData }) {
     return (
         <PageLayout>
             <Image
-                src={`/images/posts/${postData.cover}.png`}
-                height={144}
+                src={`/images/posts/${postData.cover}`}
+                height={300}
                 width={800}
                 alt={postData.title}
+                className='width100 objectFitCover'
             />
             <section className='section'>
                 <Head>

@@ -1,5 +1,5 @@
 ---
-title: 'Annual get together 2023'
+title: 'New article'
 cover: 'The-Get-Together.webp'
 date: '2023-02-26'
 ---

@@ -6,6 +6,8 @@ import { getSortedPostsData } from '../lib/posts';
 import { Card, Col, Row } from 'antd';
 import Image from 'next/image';
 
+const { Meta } = Card;
+
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
@@ -23,25 +25,24 @@ export default function Home({ allPostsData }) {
       </Head>
       <Banner />
       <section className='section'>
-        <h2 className='sectionTitle'>Projects <Link href={`/`}>See all</Link></h2>
+        <h2 className='sectionTitle'>Events <Link href={`/`}>See all</Link></h2>
         <Row gutter={16}>
           {allPostsData.map(({ id, date, title, cover }) => (
-            <Col span={12} key={id}>
+            <Col span={8} key={id}>
               <Card
                 bordered={false}
                 hoverable
                 cover={
                   <Image
-                    src={`/images/posts/${cover}.png`}
+                    src={`/images/posts/${cover}`}
                     height={144}
                     width={144}
                     alt="Profile picture"
                   />
                 }
+                className='projectCard'
               >
-                <p>{id}</p>
-                <p>{date}</p>
-                <Link href={`/posts/${id}`}>{title}</Link>
+                <Meta title={<Link href={`/posts/${id}`}>{title}</Link>} description={date} />
               </Card>
             </Col>
           ))}

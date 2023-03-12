@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import PageLayout from '../components/PageLayout';
+import PageLayout from '../../components/PageLayout';
 import styles from './Profile.module.scss';
 import { clsx } from 'clsx';
 
